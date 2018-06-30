@@ -9,26 +9,14 @@ for (var i = 1; i <= 5; i++) {
     var newImage = document.createElement('img');
     newImage.setAttribute('src', "images/pic" + i + ".jpg");
     thumbBar.appendChild(newImage);
-    var src = newImage.getAttribute('src');
-
-    var eventHandlers = [];
-
-    function createEventHandlers(i) {
-        return function() {
-            //console.log('My value is ' + i);
-        };
-    }
-    for (var i = 0; i <= 5; i++) {
-        eventHandlers[i] = createEventHandlers(i);
-    }
-    for (var j = 0; j <= 5; j++) {
-        eventHandlers[j];
-    }
-    //var j = i;
-    console.log('Image source is: ' + src);
+    newImage.onclick = function(e) {
+        var imgSrc = e.target.getAttribute('src');
+        displayImage(imgSrc);
+    };
 }
 
-// newImage.addEventListener('click', displayedImage.setAttribute('src', src));
-
+function displayImage(imgSrc) {
+    displayedImage.setAttribute('src', imgSrc);
+}
 
 /* Wiring up the Darken/Lighten button */
